@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Console</title>
+    <link rel="stylesheet" type="text/css" href="dock.css" />
+    <script data-main="scripts/main" src="scripts/require-jquery.js"></script>
+  </head>
+
+  <body>
+    <div class="console">
+      <div id="dock"></div>
+
+      <div id ="slides" class="dockable hidden">
+        <img style="max-width: 100%; max-height: 100%" src="slide.jpg" />
+      </div>
+      <div id="home" class="dockable hidden"></div>
+      <div id="qanda" class="dockable hidden"></div>
+      <video id="videoPlayer" class="dockable hidden" src="segment-5.ts"></video>
+
+      <div id="content4" class="lightbox">
+	<div id="undock" class="undock">
+	</div>
+	<div id="playerControlContainer">
+	  <div id="playerControls">
+	    <img id="shrinkButton" src="shrink.png" />
+	    <img id="playButton" src="play.png" alt="play" />
+	    <img id="fullscreenButton" src="fullscreen" alt="enlarge" />
+	  </div>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>

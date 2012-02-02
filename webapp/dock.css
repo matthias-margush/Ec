@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.console {
+    position: relative;
+    background-color: #EEEEEE;
+    width: 960px;
+    height: 640px;
+}
+
+.dock {
+    position: absolute;
+    width: 240px;
+    height: 640px;
+    border: solid 1px grey;
+    margin: 4px;
+    background-color: #DDDDDD;
+    //border-radius: 5px;
+    box-shadow: inset 0 0 8px #888;
+}
+
+.slot {
+    position: relative;
+    border: 1px solid lightgrey;
+    margin: 2px;
+    z-index: 2;
+}
+
+.docked {
+}
+
+.undocked {
+}
+
+.animates {
+    -webkit-transition: all ease-in-out 1s;
+}
+
+.undockedAbove {
+    z-index: 2;
+}
+
+.lightbox {
+    position: absolute;
+    top: 50px;
+    left: 246px;
+    width: 620px;
+    height: 480px;
+    border: solid 1px grey;
+    margin: 40px;
+    background-color: white;
+    box-shadow: inset 0 0 1px black;
+}
+
+.dockable {
+    position: absolute;
+    display: block;
+    z-index: 1;
+    margin: 4px;
+    background-color: white;
+    box-shadow: 0 0 10px black;
+    -webkit-transform-origin: top left;
+}
+
+.undock {
+    width: 480px;
+    height: 320px;
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+}
+
+#videoPlayer {
+    width: 480px;
+    height: 320px;
+}
+
+#playerControlContainer {
+    bottom: 40px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#playerControls {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#playButton {
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    vertical-align: middle;
+}
+
+#fullscreenButton {
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+#shrinkButton {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
