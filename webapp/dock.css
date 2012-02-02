@@ -38,7 +38,7 @@ body {
 }
 
 .animates {
-    -webkit-transition: all ease-in-out 1s;
+    -webkit-transition: all ease-in-out 0.5s;
 }
 
 .undockedAbove {
@@ -59,9 +59,10 @@ body {
 
 .dockable {
     position: absolute;
-    display: block;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
     z-index: 1;
-    margin: 4px;
     background-color: white;
     box-shadow: 0 0 10px black;
     -webkit-transform-origin: top left;

@@ -3,33 +3,14 @@ define [ 'jquery', 'backbone', 'underscore',  'order!text!dock/dock-templates.ht
     positionAt = (node, slot) ->
         $slot = $(slot)
         $node = $(node)
-
-        return if $node.width() == 0 or $node.height() == 0
-
         position = $slot.offset()
-        scaleX = $slot.width() / $node.width()
-        scaleY = $slot.height() / $node.height()
-        reverseScaleX = $node.width() / $slot.width()
-        reverseScaleY = $node.height() / $slot.height()
-        scale = Math.min scaleX, scaleY
-        reverseScale = Math.max reverseScaleX, reverseScaleY
-
-        if scaleX > scaleY
-            #position.left = scale * (Math.abs($slot.width() - $node.width()) / 4)
-            console.log "Adjusted left: #{position.left}"
-        else
-            position.top = scale * (position.top + ($slot.height() - $node.height()) / 4)
-            #console.log "Adjusted top: #{position.top}"
-
-        console.log "Padding: #{$node.css('margin')}"
-        marginLeft = $node.css('margin-left');
-        margionTop = $node.css('margin-top');
+        marginLeft = ($node.outerWidth(true) - $node.innerWidth()) / 2
+        marginTop = ($node.outerHeight(true) - $node.innerHeight()) / 2
         css = {
             top: "#{position.top - marginTop}px"
             left: "#{position.left - marginLeft}px"
             width: "#{$slot.width()}px"
             height: "#{$slot.height()}px"
-            #'-webkit-transform': "scaleX(#{scaleX}) scaleY(#{scaleY})"
         }
         $(node).css(css)
 
