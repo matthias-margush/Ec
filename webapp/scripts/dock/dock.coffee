@@ -19,30 +19,42 @@ define [ 'jquery', 'backbone', 'underscore',  'order!text!dock/dock-templates.ht
     Backbone.View.extend
         className: 'dock'
 
+        events:
+            'click .spot': 'undock'
+
         initialize: () ->
-            _.defaults(@options, { undockable: -1, undock: '.undock', dockables: [] });
+            _.defaults(@options, {
+                 undockable: -1,
+                 undock: '.undock',
+                 dockables: []
+            });
             @template = _.template $('#dock_template').html()
             @slotTemplate = _.template $('#dock_slot_template').html()
 
-
-        events:
-            'click .slot': 'undock'
-
         render: () ->
-            @$el.html(this.template())
+            @$el.html this.template()
+            dockArea = @$el;
 
             for i in [0...(@options.dockables.length)]
-                @$el.append @slotTemplate { height: (100 / @options.dockables.length) }
+                dockArea.append @slotTemplate {
+                    height: "#{(100 / @options.dockables.length)}%"
+                }
 
             self = this;
             setTimeout () ->
                 for i in [0...(self.options.dockables.length)]
                     if i is self.options.undockable
-                        positionAt self.options.dockables[i], self.options.undock
-                        $(self.options.dockables[i]).addClass("docked animates").removeClass("undocked hidden")
+                        positionAt self.options.dockables[i],
+                            self.options.undock
+                        $(self.options.dockables[i])
+                                .addClass("docked animates")
+                                .removeClass("undocked hidden")
                     else
-                        positionAt self.options.dockables[i], self.$el.children()[i]
-                        $(self.options.dockables[i]).addClass("undocked animates").removeClass("docked hidden")
+                        positionAt self.options.dockables[i],
+                            $(".slot", dockArea)[i]
+                        $(self.options.dockables[i])
+                                .addClass("undocked animates")
+                                .removeClass("docked hidden")
                 0
 
         add: (dockable) ->
@@ -50,6 +62,6 @@ define [ 'jquery', 'backbone', 'underscore',  'order!text!dock/dock-templates.ht
             @options.dockables.push dockable
 
         undock: (event) ->
-            @options.undockable = $(event.target).index()
+            @options.undockable = $(event.currentTarget).index()
             @render()
 

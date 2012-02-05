@@ -15,19 +15,32 @@ body {
 
 .dock {
     position: absolute;
-    width: 240px;
-    height: 640px;
-    border: solid 1px grey;
-    margin: 4px;
+    -webkit-box-sizing: border-box;
+    width: 200px;
+    top: 0px;
+    bottom: 0px;
+    height: auto;
+    //height: 640px;
+    //border: solid 1px grey;
+    //margin: 4px;
+    padding: 0px;
     background-color: #DDDDDD;
-    //border-radius: 5px;
-    box-shadow: inset 0 0 8px #888;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 0 0 8px #888;
 }
 
 .slot {
-    position: relative;
+    box-shadow: 0 0 8px #888;
+    -webkit-box-sizing: border-box;
     border: 1px solid lightgrey;
-    margin: 2px;
+    width: 100%;
+    height: 100%
+}
+
+.spot {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    padding: 15px;
     z-index: 2;
 }
 
@@ -38,7 +51,7 @@ body {
 }
 
 .animates {
-    -webkit-transition: all ease-in-out 0.5s;
+    -webkit-transition: all ease-in-out 0.75s;
 }
 
 .undockedAbove {
@@ -54,7 +67,8 @@ body {
     border: solid 1px grey;
     margin: 40px;
     background-color: white;
-    box-shadow: inset 0 0 1px black;
+    border-radius: 20px;
+    box-shadow: inset 0 0 4px black;
 }
 
 .dockable {
@@ -64,16 +78,28 @@ body {
     text-align: center;
     z-index: 1;
     background-color: white;
-    box-shadow: 0 0 10px black;
+    //border: 1px solid #EEEEEE;
+    //box-shadow: 0 0 10px black;
     -webkit-transform-origin: top left;
 }
 
 .undock {
+    position: relative;
     width: 480px;
     height: 320px;
     margin-top: 40px;
     margin-left: 80px;
     margin-bottom: 10px;
+}
+
+#logo {
+    position: absolute;
+    vertical-align: middle;
+    text-align: center;
+    bottom: 50%;
+    width: 100%;
+    margin: auto;
+    opacity: 0.1;
 }
 
 #videoPlayer {
@@ -82,7 +108,8 @@ body {
 }
 
 #playerControlContainer {
-    bottom: 40px;
+    margin-top: 20px;
+    bottom: 25px;
     height: 48px;
     margin-left: auto;
     margin-right: auto;
@@ -96,7 +123,7 @@ body {
 
 #playButton {
     text-align: center;
-    margin-left: 100px;
+    margin-left: 130px;
     margin-right: 100px;
     vertical-align: middle;
 }

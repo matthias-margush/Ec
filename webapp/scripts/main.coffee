@@ -1,6 +1,6 @@
-require(["jquery", "backbone", "underscore", 'cs!dock/dock', 'cs!player/player'], function($, Backbone, _, Dock, Player) {
+require(["jquery", "backbone", "underscore", 'cs!dock/dock', 'cs!player/player'], ($, Backbone, _, Dock, Player) ->
 
-    var EventConsoleRouter = Backbone.Router.extend({
+    EventConsoleRouter = Backbone.Router.extend({
         routes: {
             "": "root"
         },
@@ -13,13 +13,13 @@ require(["jquery", "backbone", "underscore", 'cs!dock/dock', 'cs!player/player']
             dock.add("#qanda");
             dock.add("<div>");
 
-            var player = new Player({
+            player = new Player({
                 el: '#videoPlayer',
                 playButton: '#playButton',
                 playImage: "play.png",
                 pauseImage: "pause.png",
             });
-            
+
             $(function() {
             });
             setTimeout(function() {
@@ -30,7 +30,6 @@ require(["jquery", "backbone", "underscore", 'cs!dock/dock', 'cs!player/player']
         }
     });
 
-    var eventConsoleRouter = new EventConsoleRouter;
+    eventConsoleRouter = new EventConsoleRouter;
     Backbone.history.start();
 
-});
