@@ -1,12 +1,12 @@
-require(["jquery", "backbone", "underscore", 'cs!dock/dock', 'cs!player/player'], ($, Backbone, _, Dock, Player) ->
+require ["jquery", "backbone", "underscore", 'cs!dock/dock', 'cs!player/player'], ($, Backbone, _, Dock, Player) ->
 
-    EventConsoleRouter = Backbone.Router.extend({
+   EventConsoleRouter = Backbone.Router.extend
         routes: {
             "": "root"
-        },
+        }
 
-        root: function() {
-            var dock = new Dock({ slotCount: 5 });
+        root: () ->
+            dock = new Dock({ slotCount: 5 });
             dock.add("#videoPlayer");
             dock.add("#slides");
             dock.add("#home");
@@ -20,16 +20,18 @@ require(["jquery", "backbone", "underscore", 'cs!dock/dock', 'cs!player/player']
                 pauseImage: "pause.png",
             });
 
-            $(function() {
-            });
-            setTimeout(function() {
-                dock.render();
-                $("#dock").append(dock.el);
-                 $('*').removeClass("hidden");
-            }, 0);
-        }
-    });
+            # $(function() {
+            # });
 
-    eventConsoleRouter = new EventConsoleRouter;
-    Backbone.history.start();
+            setTimeout(() ->
+               dock.render();
+               $("#dock").append(dock.el);
+               $('*').removeClass("hidden");
+            , 0)
+
+
+
+    eventConsoleRouter = new EventConsoleRouter
+    Backbone.history.start()
+    console.log "Started backbone history"
 
